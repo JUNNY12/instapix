@@ -1,0 +1,20 @@
+{
+  "short_name": "INSTAPIX",
+  "name": "INSTAGRAM PIX",
+  "icons": [
+    {
+      "src": "instapix_192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "instapix_1_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#E85454",
+  "background_color": "#ffffff"
+}
