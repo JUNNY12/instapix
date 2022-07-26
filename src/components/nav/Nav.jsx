@@ -1,8 +1,8 @@
 import instagramLogo from "../../assets/instagramLogo.png";
 
-const Nav = () => {
+const Nav = (props) => {
   return (
-    <nav>
+    <nav className={props.darkMode? 'dark' : ''}>
       <button className="logo">
         <img src={instagramLogo} alt="logo" />
       </button>

@@ -1,10 +1,11 @@
 import getPhotoUrl from "get-photo-url";
 import { useLiveQuery } from "dexie-react-hooks";
 import { db } from "../dexiedb/dexiedb";
-import Modal from "../modalalert/Modal";
+import ClearAllModal from "../modalalert/ClearAllModal";
 import { useState } from "react";
 import Preloader from "../preloader/PreLoader";
 import EmptyGallery from "./EmptyGallery";
+import DeleteModal from "../modalalert/DeleteModal";
 
 const Gallery = () => {
   const [showModal, setShowModal] = useState(true);
@@ -44,10 +45,11 @@ const Gallery = () => {
       </section>
 
       <div className={showModal ? "show-modal" : ""}>
-        <Modal setShowModal={setShowModal} />
+        <ClearAllModal setShowModal={setShowModal} />
       </div>
 
-      {allPhotos?.length > 0 && (
+      
+      {allPhotos?.length > 1 && (
         <div className="clear-button-container">
           {
             <button

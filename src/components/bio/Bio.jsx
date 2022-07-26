@@ -1,10 +1,10 @@
-import { useState} from "react";
+import { useState } from "react";
 import profileIcon from "../../assets/instapix_1_512x512.png";
 import getPhotoUrl from "get-photo-url";
 import { db } from "../dexiedb/dexiedb";
 import { useLiveQuery } from "dexie-react-hooks";
 
-const Bio = () => {
+const Bio = (props) => {
   const [userDetails, setUserDetails] = useState({
     name: "Lycium",
     about: "Iopsum lycium dcium lysium iopsium",
@@ -13,7 +13,7 @@ const Bio = () => {
   const [editFormIsOpen, setEditFormIsOpen] = useState(false);
 
   const bioDetails = useLiveQuery(() => db.bio.get("info"), []);
-  const bioProfilePhoto = useLiveQuery(() => db.bio.get("profilePhoto"));
+  const bioProfilePhoto = useLiveQuery(() => db.bio.get("profilePhoto"), []);
 
   const addUserDetails = async (event) => {
     event.preventDefault();
@@ -64,34 +64,46 @@ const Bio = () => {
   );
   const editButton = (
     <button onClick={() => setEditFormIsOpen(true)}>
-        <span>Edit</span>
-        <span><i class="fa-solid fa-pencil"></i></span>
+      <span>Edit</span>
+      <span>
+        <i className="fa-solid fa-pencil"></i>
+      </span>
     </button>
   );
 
   return (
-    <section className="bio">
-      <input
-        type={`file`}
-        accept="image/*"
-        name="photo"
-        id="profilePhotoInput"
-      />
-      <label htmlFor="profilePhotoInput" onClick={addProfilePhoto}>
-        <div
-          className="profile-photo"
-          role={`button`}
-          title="Click to edit Photo"
-        >
-          <img src={bioProfilePhoto || profileIcon} alt="my profile" />
+    <div className={props.darkMode ? "dark" : ""}>
+      <section className="bio">
+        <div className="toggler">
+          <p>Light mode</p>
+          <div className="toggle-container" onClick={props.toggleDarkMode}>
+            <div className="toggle-ball"></div>
+          </div>
+          <p>Dark Mode</p>
         </div>
-      </label>
-      <div className="profile-info">
-        <p className="name">{bioDetails?.name || userDetails.name}</p>
-        <p className="about">{bioDetails?.about || userDetails.about}</p>
-        {editFormIsOpen ? editForm : editButton}
-      </div>
-    </section>
+
+        <input
+          type={`file`}
+          accept="image/*"
+          name="photo"
+          id="profilePhotoInput"
+        />
+        <label htmlFor="profilePhotoInput" onClick={addProfilePhoto}>
+          <div
+            className="profile-photo"
+            role={`button`}
+            title="Click to edit Photo"
+          >
+            <img src={bioProfilePhoto || profileIcon} alt="my profile" />
+          </div>
+        </label>
+        <div className="profile-info">
+          <p className="name">{bioDetails?.name || userDetails.name}</p>
+          <p className="about">{bioDetails?.about || userDetails.about}</p>
+          {editFormIsOpen ? editForm : editButton}
+        </div>
+      </section>
+    </div>
   );
 };
 

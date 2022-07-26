@@ -19,7 +19,7 @@ Contain enough information for everyone to know exactly what you worked on.
 * User should see a message when there’s no item in the gallery
 
 * Use the useLiveQuery hook for bio details instead of the current React useState hook
-To delete a photo, first display a modal that confirms if user is sure they want to delete
+* To delete a photo, first display a modal that confirms if user is sure they want to delete
 
 * Show loading animation when images are being fetched from the database
 
