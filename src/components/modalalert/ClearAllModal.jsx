@@ -3,7 +3,7 @@ import { db } from "../dexiedb/dexiedb";
 const ClearAllModal = (props) => {
   const clearPhotoFromDb = (id) => {
     db.gallery.orderBy(id).delete();
-    props.setShowModal(true);
+    props.setShowClearAllModal(true);
   };
 
   return (

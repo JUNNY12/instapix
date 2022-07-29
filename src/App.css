@@ -246,10 +246,15 @@ nav.dark {
 }
 
 .item {
-  height: 17rem;
+  height: 17em;
   background: #000;
   cursor: pointer;
   position: relative;
+}
+
+.item:hover{
+  transform:translateY(4%);
+  transition: 1s ease;
 }
 
 .item-image {
@@ -341,8 +346,13 @@ nav.dark {
   border-radius: 0.5em;
   transition: 7s ease;
   font-weight: 800;
+  transition: 1s linear;
 }
-
+.dark .modal-wrapper{
+  background-color: #100f0f;
+  color: var(--background-light);
+  transition: 1s linear;
+}
 .modal-container {
   display: grid;
   place-items: center;
@@ -400,7 +410,6 @@ nav.dark {
 .loader-container {
   display: grid;
   place-items: center;
-  height: 100vh;
 }
 
 .fa-solid.fa-pencil {
@@ -516,6 +525,7 @@ main {
   .bio {
     grid-template-columns: 1fr;
     place-items: center;
+    padding: 9em 0 2em 0; 
   }
 }
 
@@ -524,7 +534,6 @@ main {
     width: 5em;
     height: 5em;
     margin-top: 1.5em;
-    /* margin-right: 2em; */
   }
 
   .profile-info button,
@@ -543,10 +552,6 @@ main {
 }
 
 @media screen and (max-width: 412px) {
-  .bio {
-    padding: 3em 0 2em 0;
-  }
-
   .toggler {
     top: 12%;
   }
