@@ -50,5 +50,9 @@ Contain enough information for everyone to know exactly what you worked on.
 * [IndexedDb/Dexie for storage](https://dexie.org/)
 * [Workbox for service worker generation](https://developers.google.com/web/tools/workbox/guides/generate-service-worker/cli)
 
+## Deploy Link
+
+* [visit](https://instapix.netlify.app/)
+
 
 
