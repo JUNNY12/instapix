@@ -72,6 +72,16 @@ nav.dark {
 
 .logo {
   text-decoration: none;
+  font-weight: bold;
+  color: #000;
+  font-size: 2em;
+  font-family: 'Dancing Script', cursive;
+  transition: 1s linear;
+}
+
+.dark .logo{
+  color: #fff;
+  transition: 1s linear;
 }
 
 .logo > img {
@@ -646,6 +656,11 @@ main {
 
   .modal-wrapper p{
     font-size: 1.3em;
+  }
+
+  .logo{
+    font-size: 1.5em;
+    padding-left: 4%;
   }
 }
 

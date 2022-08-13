@@ -5,9 +5,7 @@ const Nav = (props) => {
   
   return (
     <nav className={props.darkMode? 'dark' : ''}>
-      <button className="logo">
-        {props.darkMode? <h2 className="instagram-text">Instagram</h2>  : <img src={instagramLogo} alt="logo" /> }
-      </button>
+      <button className="logo">INSTAPIX</button>
       <input type={`text`} className="search" placeholder="search" />
       <span className="nav-links">
         <button>
