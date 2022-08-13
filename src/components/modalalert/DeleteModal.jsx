@@ -1,8 +1,10 @@
 
 const DeleteModal = (props) => {
+
   return (
     <div className="modal-container">
       <div className="modal-wrapper">
+        <p className="cancel-modal" onClick={() => props.setShowDeleteModal(true)}>X</p>
         <i className="info-icon fa-solid fa-circle-info"></i>
         <p>Do You Want to delete this image?</p>
         <div>

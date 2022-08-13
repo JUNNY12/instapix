@@ -3,7 +3,7 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { db } from "../dexiedb/dexiedb";
 import ClearAllModal from "../modalalert/ClearAllModal";
 import DeleteModal from "../modalalert/DeleteModal";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Preloader from "../preloader/PreLoader";
 import EmptyGallery from "./EmptyGallery";
 
@@ -29,6 +29,22 @@ const Gallery = () => {
     setCurrentId(id);
   };
 
+  const buttonRef = useRef()
+
+  useEffect(() => {
+
+    const closeModal = (e) => {
+      if(e.path[0].tagName !== 'BUTTON'){
+        setShowDeleteModal(true)
+        setShowClearAllModal(true)
+      }
+    }
+    document.body.addEventListener("click", closeModal);
+    return () => document.body.removeEventListener("click", closeModal)
+  },[])
+
+
+
   let renderGallery;
   if (allPhotos) {
     renderGallery = (
@@ -39,6 +55,7 @@ const Gallery = () => {
             <div className="item" key={photo.id}>
               <img src={photo.url} className="item-image" alt="item" />
               <button
+              ref={buttonRef}
                 className="delete-button"
                 onClick={() => showDeleteModalHandler(photo.id)}
               >
