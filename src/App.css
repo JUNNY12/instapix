@@ -110,17 +110,17 @@ nav.dark {
   column-gap: 15%;
 }
 
-.nav-links i  {
+.nav-links button  {
   transform: scale(1.6);
   color: #252525;
   transition: 1s linear;
 }
 
-.dark .nav-links i {
+.dark .nav-links button {
   color: var(--background-light);
 }
 
-.nav-links.dark i {
+.nav-links.dark button {
   color: #f5f5f5;
 }
 
@@ -233,7 +233,7 @@ nav.dark {
   display: none;
 }
 
-.add-photo-button {
+.add-photo-button{
   transform: scale(3);
   position: fixed;
   bottom: 4.5em;
@@ -244,10 +244,13 @@ nav.dark {
   transition: 1s linear;
 }
 
-.dark .add-photo-button {
+
+.dark .add-photo-button,
+.dark .addIcon {
   color: var(--background-light);
   transition: 1s linear;
 }
+
 
 .gallery {
   display: grid;
@@ -337,13 +340,13 @@ nav.dark {
   transition: 1s linear;
 }
 
-.mobile-nav-links i {
+.mobile-nav-links button {
   transform: scale(1.7);
   color: #252525;
   transition: 1s linear;
 }
 
-.dark .mobile-nav-links i {
+.dark .mobile-nav-links button {
   color: var(--background-light);
   transition: 1s linear;
 }
@@ -581,7 +584,6 @@ main {
 }
 
 
-
 @media screen and (max-width: 768px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
@@ -659,8 +661,12 @@ main {
   }
 
   .logo{
-    font-size: 1.5em;
+    font-size: 1.3em;
     padding-left: 4%;
+  }
+
+  .bio{
+    padding-top: 5em;
   }
 }
 

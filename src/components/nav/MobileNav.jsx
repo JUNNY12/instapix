@@ -1,18 +1,20 @@
+import { House, Message, Compass, Heart } from "../icons/Icons";
+
 const MobileNav = (props) => {
   return (
     <div className={props.darkMode ? "dark" : ""}>
       <div className="mobile-nav-links">
         <button>
-          <i className="fas fa-home" />
+          <House />
         </button>
         <button>
-          <i className="fas fa-comment-alt" />
+          <Message />
         </button>
         <button>
-          <i className="fas fa-compass" />
+          <Compass />
         </button>
         <button>
-          <i className="fas fa-heart" />
+         <Heart />
         </button>
       </div>
     </div>

@@ -1,11 +1,12 @@
+import ClearAllModal from "../modalalert/ClearAllModal";
+import { db } from "../dexiedb/dexiedb";
+import DeleteModal from "../modalalert/DeleteModal";
+import EmptyGallery from "./EmptyGallery";
 import getPhotoUrl from "get-photo-url";
 import { useLiveQuery } from "dexie-react-hooks";
-import { db } from "../dexiedb/dexiedb";
-import ClearAllModal from "../modalalert/ClearAllModal";
-import DeleteModal from "../modalalert/DeleteModal";
 import { useState, useRef, useEffect } from "react";
 import Preloader from "../preloader/PreLoader";
-import EmptyGallery from "./EmptyGallery";
+import { Plus, TrashIcon } from "../icons/Icons";
 
 const Gallery = () => {
   const [showClearAllModal, setShowClearAllModal] = useState(true);
@@ -59,7 +60,7 @@ const Gallery = () => {
                 className="delete-button"
                 onClick={() => showDeleteModalHandler(photo.id)}
               >
-                <i class="fa-solid fa-trash-can"></i>
+                < TrashIcon/>
               </button>
             </div>
           ))}
@@ -74,7 +75,9 @@ const Gallery = () => {
     <>
       <input type={`file`} name="photo" id="addPhotoInput" />
       <label htmlFor="addPhotoInput" onClick={addPhoto}>
-        <i className="add-photo-button fas fa-plus-square" />
+        <div className="add-photo-button" >
+          <Plus />
+        </div>
       </label>
 
       {renderGallery}

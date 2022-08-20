@@ -1,4 +1,5 @@
 import instagramLogo from "../../assets/instagramLogo.png";
+import { Compass, Heart, Message , House} from "../icons/Icons";
 
 
 const Nav = (props) => {
@@ -9,16 +10,16 @@ const Nav = (props) => {
       <input type={`text`} className="search" placeholder="search" />
       <span className="nav-links">
         <button>
-          <i className="fas fa-home" />
+          <House />
         </button>
         <button>
-          <i className="fas fa-comment-alt" />
+          <Message />
         </button>
         <button>
-          <i className="fas fa-compass" />
+          <Compass />
         </button>
         <button>
-          <i className="fas fa-heart" />
+         <Heart />
         </button>
       </span>
     </nav>
